@@ -6,6 +6,45 @@ import { useGSAP } from "@gsap/react";
 
 gsap.registerPlugin(useGSAP);
 
+const projectsList = [
+  {
+    title: "Airline Passenger Satisfaction System",
+    category: "ML Prediction Engine | AirlineIQ",
+    tools: "Python, Pandas, NumPy, Scikit-learn, Classification",
+    image: "/images/airline.png"
+  },
+  {
+    title: "Smart Loan Approval Predictions",
+    category: "Machine Learning Platform | LoanIQ",
+    tools: "Python, Pandas, NumPy, Scikit-learn, Classification",
+    image: "/images/smartloan.png"
+  },
+  {
+    title: "Old Bike Resale Price Prediction",
+    category: "Regression Model | BikeIQ",
+    tools: "Python, Pandas, NumPy, Scikit-learn, EDA, Regression",
+    image: "/images/bike.png"
+  },
+  {
+    title: "Laptop Price Intel Ligence",
+    category: "Machine Learning Project",
+    tools: "Python, Pandas, NumPy, Scikit-learn, Regression",
+    image: "/images/laptop price.png"
+  },
+  {
+    title: "Insurance Cost Prediction System",
+    category: "ML Regression Model | InsureIQ",
+    tools: "Python, Pandas, NumPy, Scikit-learn, Regression",
+    image: "/images/insurance.png"
+  },
+  {
+    title: "Spam Detection System",
+    category: "RNN / NLP Project",
+    tools: "Python, NLP, RNN, Tokenization, Text Classification",
+    image: "/images/placeholder.webp"
+  }
+];
+
 const Work = () => {
   useGSAP(() => {
   let translateX: number = 0;
@@ -53,21 +92,21 @@ const Work = () => {
           My <span>Work</span>
         </h2>
         <div className="work-flex">
-          {[...Array(6)].map((_value, index) => (
+          {projectsList.map((project, index) => (
             <div className="work-box" key={index}>
               <div className="work-info">
                 <div className="work-title">
                   <h3>0{index + 1}</h3>
 
                   <div>
-                    <h4>Project Name</h4>
-                    <p>Category</p>
+                    <h4>{project.title}</h4>
+                    <p>{project.category}</p>
                   </div>
                 </div>
                 <h4>Tools and features</h4>
-                <p>Javascript, TypeScript, React, Threejs</p>
+                <p>{project.tools}</p>
               </div>
-              <WorkImage image="/images/placeholder.webp" alt="" />
+              <WorkImage image={project.image} alt={project.title} />
             </div>
           ))}
         </div>
